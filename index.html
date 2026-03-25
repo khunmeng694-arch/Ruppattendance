@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RUPP — Absence Management System</title>
+<title>RUPP â€” Absence Management System</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -472,8 +472,8 @@
 
   /* Absence call */
   .attendance-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 8px;
   }
   .student-card {
@@ -558,7 +558,7 @@
      RESPONSIVE BREAKPOINTS
      ===================================================== */
 
-  /* ---- TABLET (≤1024px) ---- */
+  /* ---- TABLET (â‰¤1024px) ---- */
   @media (max-width: 1024px) {
     :root { --sidebar-w: 200px; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -566,7 +566,7 @@
     .grid-3 { grid-template-columns: 1fr 1fr; }
   }
 
-  /* ---- MOBILE (≤768px) ---- */
+  /* ---- MOBILE (â‰¤768px) ---- */
   @media (max-width: 768px) {
     /* Hide desktop sidebar, show mobile UI */
     .sidebar {
@@ -628,7 +628,7 @@
     .session-banner > div:last-child { width: 100%; display: flex; gap: 8px; flex-wrap: wrap; }
   }
 
-  /* ---- SMALL PHONE (≤420px) ---- */
+  /* ---- SMALL PHONE (â‰¤420px) ---- */
   @media (max-width: 420px) {
     .attendance-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
@@ -636,7 +636,7 @@
     .btn-sm { padding: 6px 9px; font-size: 11px; }
   }
 
-  /* ---- DESKTOP (≥769px) keep sidebar always visible ---- */
+  /* ---- DESKTOP (â‰¥769px) keep sidebar always visible ---- */
   @media (min-width: 769px) {
     .sidebar { transform: translateX(0) !important; }
     .topbar { display: none !important; }
@@ -735,7 +735,7 @@
           <p style="font-size:10px;">Absence Management</p>
         </div>
       </div>
-      <button onclick="closeSidebar()" style="background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:4px;display:none;" id="sidebar-close-btn" aria-label="Close">✕</button>
+      <button onclick="closeSidebar()" style="background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:4px;display:none;" id="sidebar-close-btn" aria-label="Close">âœ•</button>
     </div>
     <div class="sidebar-user">
       <div class="user-avatar" id="sb-avatar">AD</div>
@@ -848,7 +848,7 @@
           <div class="card-header">
             <h3>Student Roll Call</h3>
             <div style="display:flex;gap:6px;flex-wrap:wrap">
-              <button class="btn btn-sm btn-outline" onclick="markAllPresent()">✓ All Present</button>
+              <button class="btn btn-sm btn-outline" onclick="markAllPresent()">âœ“ All Present</button>
               <button class="btn btn-sm btn-success" onclick="submitAttendance()">Save Session</button>
               <button class="btn btn-sm btn-outline" onclick="cancelAttendance()">Cancel</button>
             </div>
@@ -1023,7 +1023,7 @@
 <!-- ===== MODALS ===== -->
 <div id="modal-student" class="modal-backdrop hidden">
   <div class="modal">
-    <div class="modal-header"><h3 id="student-modal-title">Add Student</h3><button class="btn-close" onclick="closeModal('modal-student')">×</button></div>
+    <div class="modal-header"><h3 id="student-modal-title">Add Student</h3><button class="btn-close" onclick="closeModal('modal-student')">Ã—</button></div>
     <div class="modal-body">
       <input type="hidden" id="student-id-edit">
       <div class="form-group"><label>Full Name</label><input type="text" class="form-control" id="student-name-input" placeholder="Student full name"></div>
@@ -1039,7 +1039,7 @@
 
 <div id="modal-subject" class="modal-backdrop hidden">
   <div class="modal">
-    <div class="modal-header"><h3 id="subject-modal-title">Add Subject</h3><button class="btn-close" onclick="closeModal('modal-subject')">×</button></div>
+    <div class="modal-header"><h3 id="subject-modal-title">Add Subject</h3><button class="btn-close" onclick="closeModal('modal-subject')">Ã—</button></div>
     <div class="modal-body">
       <input type="hidden" id="subject-id-edit">
       <div class="form-group"><label>Subject Name</label><input type="text" class="form-control" id="subject-name-input" placeholder="e.g. Mathematics"></div>
@@ -1055,7 +1055,7 @@
 
 <div id="modal-class" class="modal-backdrop hidden">
   <div class="modal">
-    <div class="modal-header"><h3 id="class-modal-title">Add Class</h3><button class="btn-close" onclick="closeModal('modal-class')">×</button></div>
+    <div class="modal-header"><h3 id="class-modal-title">Add Class</h3><button class="btn-close" onclick="closeModal('modal-class')">Ã—</button></div>
     <div class="modal-body">
       <input type="hidden" id="class-id-edit">
       <div class="form-group"><label>Class Name</label><input type="text" class="form-control" id="class-name-input" placeholder="e.g. Class 10A"></div>
@@ -1070,7 +1070,7 @@
 
 <div id="modal-confirm" class="modal-backdrop hidden">
   <div class="modal" style="max-width:360px">
-    <div class="modal-header"><h3>Confirm</h3><button class="btn-close" onclick="closeModal('modal-confirm')">×</button></div>
+    <div class="modal-header"><h3>Confirm</h3><button class="btn-close" onclick="closeModal('modal-confirm')">Ã—</button></div>
     <div class="modal-body"><p id="confirm-msg"></p></div>
     <div class="modal-footer">
       <button class="btn btn-outline" id="confirm-cancel-btn" onclick="closeModal('modal-confirm')">Cancel</button>
@@ -1083,98 +1083,204 @@
 // ============================================================
 // SUPABASE CONFIG (fill in your project URL and anon key)
 // ============================================================
-const SUPABASE_URL = 'https://eorixizxilwdqkakptsd.supabase.co';
+const SUPABASE_URL = 'https://eoriqizxilwdqkakptsd.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvcmlxaXp4aWx3ZHFrYWtwdHNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzMzMyMzMsImV4cCI6MjA4OTkwOTIzM30.A6WQOZ2amrTqkxvtO36NXUZ_K7fXeyrzx9txeerl8ig';
 
-// Simple Supabase REST helper (no SDK needed)
+const USE_SUPABASE = !!(
+  typeof SUPABASE_URL !== 'undefined' &&
+  typeof SUPABASE_KEY !== 'undefined' &&
+  SUPABASE_URL &&
+  SUPABASE_KEY
+);
+
+const _supabase =
+  typeof window !== 'undefined' && window.supabase && USE_SUPABASE
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+    : null;
+
+// ============================================================
+// DATA STORE (localStorage fallback when Supabase not configured)
+// ============================================================
+const store = {
+  get(k) {
+    try {
+      return JSON.parse(localStorage.getItem('rupp_' + k) || 'null');
+    } catch {
+      return null;
+    }
+  },
+  set(k, v) {
+    try {
+      localStorage.setItem('rupp_' + k, JSON.stringify(v));
+    } catch {}
+  },
+};
+
+function today() {
+  return new Date().toISOString().split('T')[0];
+}
+function genId() {
+  return Date.now() + Math.random().toString(36).slice(2, 7);
+}
+function jsArg(v) {
+  return JSON.stringify(String(v ?? ''));
+}
+
+function initLocalData() {
+  if (!store.get('initialized')) {
+    store.set('users', [
+      {
+        id: 'local-admin',
+        name: 'Administrator',
+        username: 'admin',
+        password: 'admin123',
+        role: 'admin',
+        status: 'approved',
+        created_at: today(),
+      },
+    ]);
+    store.set('students', []);
+    store.set('classes', []);
+    store.set('subjects', []);
+    store.set('sessions', []);
+    store.set('initialized', true);
+  }
+}
+
+async function parseBody(res) {
+  const text = await res.text();
+  if (!text) return null;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
+}
+
+const authHeaders = () => ({
+  apikey: SUPABASE_KEY,
+  Authorization: `Bearer ${SUPABASE_KEY}`,
+});
+
+// ============================================================
+// SIMPLE SUPABASE REST HELPER
+// ============================================================
 const sb = {
-  async from(table){
+  from(table) {
     return {
       _table: table,
       _filters: [],
       _select: '*',
-      select(cols){ this._select = cols; return this; },
-      eq(col, val){ this._filters.push({col, val, op:'eq'}); return this; },
-      async execute(){
-        if(!SUPABASE_URL) return {data:null, error:'No Supabase config'};
-        let url = `${SUPABASE_URL}/rest/v1/${this._table}?select=${encodeURIComponent(this._select)}`;
-        this._filters.forEach(f=>{ url += `&${f.col}=eq.${encodeURIComponent(f.val)}`; });
-        try {
-          const res = await fetch(url, {headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}});
-          const data = await res.json();
-          return {data, error: res.ok ? null : data};
-        } catch(e){ return {data:null, error:e.message}; }
+
+      select(cols) {
+        this._select = cols;
+        return this;
       },
-      async insert(rows){
-        if(!SUPABASE_URL) return {data:null, error:'No Supabase config'};
-        const arr = Array.isArray(rows)?rows:[rows];
+
+      eq(col, val) {
+        this._filters.push({ col, val });
+        return this;
+      },
+
+      _filterQuery() {
+        return this._filters
+          .map((f) => `${encodeURIComponent(f.col)}=eq.${encodeURIComponent(f.val)}`)
+          .join('&');
+      },
+
+      async execute() {
+        if (!USE_SUPABASE) return { data: null, error: 'No Supabase config' };
+
+        let url = `${SUPABASE_URL}/rest/v1/${this._table}?select=${encodeURIComponent(this._select)}`;
+        const fq = this._filterQuery();
+        if (fq) url += `&${fq}`;
+
+        try {
+          const res = await fetch(url, { headers: authHeaders() });
+          const data = await parseBody(res);
+          return { data, error: res.ok ? null : data };
+        } catch (e) {
+          return { data: null, error: e.message };
+        }
+      },
+
+      async insert(rows) {
+        if (!USE_SUPABASE) return { data: null, error: 'No Supabase config' };
+
+        const arr = Array.isArray(rows) ? rows : [rows];
         try {
           const res = await fetch(`${SUPABASE_URL}/rest/v1/${this._table}`, {
-            method:'POST', headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json','Prefer':'return=representation'},
-            body: JSON.stringify(arr)
+            method: 'POST',
+            headers: {
+              ...authHeaders(),
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
+            },
+            body: JSON.stringify(arr),
           });
-          const data = await res.json();
-          return {data, error: res.ok ? null : data};
-        } catch(e){ return {data:null, error:e.message}; }
+          const data = await parseBody(res);
+          return { data, error: res.ok ? null : data };
+        } catch (e) {
+          return { data: null, error: e.message };
+        }
       },
-      async update(row){
-        if(!SUPABASE_URL) return {data:null, error:'No Supabase config'};
-        let url = `${SUPABASE_URL}/rest/v1/${this._table}?`;
-        this._filters.forEach(f=>{ url += `${f.col}=eq.${encodeURIComponent(f.val)}&`; });
+
+      async update(row) {
+        if (!USE_SUPABASE) return { data: null, error: 'No Supabase config' };
+
+        const fq = this._filterQuery();
+        const url = `${SUPABASE_URL}/rest/v1/${this._table}${fq ? `?${fq}` : ''}`;
+
         try {
           const res = await fetch(url, {
-            method:'PATCH', headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json','Prefer':'return=representation'},
-            body: JSON.stringify(row)
+            method: 'PATCH',
+            headers: {
+              ...authHeaders(),
+              'Content-Type': 'application/json',
+              Prefer: 'return=representation',
+            },
+            body: JSON.stringify(row),
           });
-          const data = await res.json();
-          return {data, error: res.ok ? null : data};
-        } catch(e){ return {data:null, error:e.message}; }
+          const data = await parseBody(res);
+          return { data, error: res.ok ? null : data };
+        } catch (e) {
+          return { data: null, error: e.message };
+        }
       },
-      async delete(){
-        if(!SUPABASE_URL) return {data:null, error:'No Supabase config'};
-        let url = `${SUPABASE_URL}/rest/v1/${this._table}?`;
-        this._filters.forEach(f=>{ url += `${f.col}=eq.${encodeURIComponent(f.val)}&`; });
+
+      async delete() {
+        if (!USE_SUPABASE) return { data: null, error: 'No Supabase config' };
+
+        const fq = this._filterQuery();
+        const url = `${SUPABASE_URL}/rest/v1/${this._table}${fq ? `?${fq}` : ''}`;
+
         try {
-          const res = await fetch(url, {method:'DELETE', headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}});
-          return {data:null, error: res.ok ? null : await res.json()};
-        } catch(e){ return {data:null, error:e.message}; }
-      }
+          const res = await fetch(url, {
+            method: 'DELETE',
+            headers: authHeaders(),
+          });
+          const data = await parseBody(res);
+          return { data: null, error: res.ok ? null : data };
+        } catch (e) {
+          return { data: null, error: e.message };
+        }
+      },
     };
-  }
+  },
 };
 
-const USE_SUPABASE = !!(SUPABASE_URL && SUPABASE_KEY);
-
-// ============================================================
-// DATA STORE  (localStorage fallback when Supabase not configured)
-// ============================================================
-const store = {
-  get(k){ try{ return JSON.parse(localStorage.getItem('rupp_'+k)||'null'); }catch(e){return null;} },
-  set(k,v){ localStorage.setItem('rupp_'+k, JSON.stringify(v)); },
-};
-
-function today(){ return new Date().toISOString().split('T')[0]; }
-function genId(){ return Date.now()+Math.random().toString(36).slice(2,7); }
-
-function initLocalData(){
-  if(!store.get('initialized')){
-    store.set('users',[
-      {id:'local-admin',name:'Administrator',username:'admin',password:'admin123',role:'admin',status:'approved',created_at:today()}
-    ]);
-    store.set('students',[]);
-    store.set('classes',[]);
-    store.set('subjects',[]);
-    store.set('sessions',[]);
-    store.set('initialized',true);
-  }
+// Use local fallback only when Supabase is not enabled
+if (!USE_SUPABASE) {
+  initLocalData();
 }
+
 
 // ============================================================
 // SUPABASE DATA API  (all functions return {data, error})
 // ============================================================
 const DB = {
 
-  // ── USERS ──────────────────────────────────────────────────
+  // â”€â”€ USERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   async getUsers(){
     if(!USE_SUPABASE){
       return {data: store.get('users')||[], error:null};
@@ -1263,7 +1369,7 @@ const DB = {
     }
   },
 
-  // ── CLASSES ────────────────────────────────────────────────
+  // â”€â”€ CLASSES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   async getClasses(){
     if(!USE_SUPABASE){ return {data:store.get('classes')||[], error:null}; }
     const res = await fetch(`${SUPABASE_URL}/rest/v1/classes?select=*&order=name.asc`, {
@@ -1318,7 +1424,7 @@ const DB = {
     return {data:null, error: res.ok ? null : await res.json()};
   },
 
-  // ── SUBJECTS ───────────────────────────────────────────────
+  // â”€â”€ SUBJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   async getSubjects(){
     if(!USE_SUPABASE){ return {data:store.get('subjects')||[], error:null}; }
     const res = await fetch(`${SUPABASE_URL}/rest/v1/subjects?select=*&order=name.asc`, {
@@ -1375,7 +1481,7 @@ const DB = {
     return {data:null, error: res.ok ? null : await res.json()};
   },
 
-  // ── STUDENTS ───────────────────────────────────────────────
+  // â”€â”€ STUDENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   async getStudents(){
     if(!USE_SUPABASE){ return {data:store.get('students')||[], error:null}; }
     const res = await fetch(`${SUPABASE_URL}/rest/v1/students?select=*&order=name.asc`, {
@@ -1430,7 +1536,7 @@ const DB = {
     return {data:null, error: res.ok ? null : await res.json()};
   },
 
-  // ── SESSIONS + ATTENDANCE ──────────────────────────────────
+  // â”€â”€ SESSIONS + ATTENDANCE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   async getSessions(){
     if(!USE_SUPABASE){ return {data:store.get('sessions')||[], error:null}; }
     const res = await fetch(`${SUPABASE_URL}/rest/v1/sessions?select=*,attendance_records(*)&order=date.desc`, {
@@ -1438,7 +1544,7 @@ const DB = {
     });
     const data = await res.json();
     if(!res.ok) return {data:[], error:data};
-    // normalise: map attendance_records → attendance
+    // normalise: map attendance_records â†’ attendance
     const normalized = data.map(s=>({
       ...s,
       subjectId: s.subject_id,
@@ -1457,7 +1563,7 @@ const DB = {
   async createSession(session, attendanceList){
     if(!USE_SUPABASE){
       const sessions = store.get('sessions')||[];
-      const row = {...session, id:genId(), createdAt:new Date().toISOString()};
+      const row = {...session, id:genId(), createdAt:new Date().toISOString(), attendance:(attendanceList||[]).map(a=>({studentId:String(a.studentId), name:a.name, status:a.status}))};
       sessions.push(row); store.set('sessions',sessions);
       return {data:row, error:null};
     }
@@ -1562,7 +1668,7 @@ async function doLogin(){
   const p = document.getElementById('login-pass').value;
   if(!u||!p){ setAlert('Please enter username and password.'); return; }
   const loginBtn = document.querySelector('#login-form .btn-primary');
-  if(loginBtn){ loginBtn.disabled=true; loginBtn.textContent='Signing in…'; }
+  if(loginBtn){ loginBtn.disabled=true; loginBtn.textContent='Signing inâ€¦'; }
 
   const {data:user, error} = await DB.findUserByCredentials(u, p);
 
@@ -1602,7 +1708,7 @@ async function doRegister(){
   const p = document.getElementById('reg-pass').value;
   if(!name||!u||!p){ setAlert('Please fill in all fields.'); return; }
   const regBtn = document.querySelector('#register-form .btn-primary');
-  if(regBtn){ regBtn.disabled=true; regBtn.textContent='Submitting…'; }
+  if(regBtn){ regBtn.disabled=true; regBtn.textContent='Submittingâ€¦'; }
   // Check duplicate
   const {data:users} = await DB.getUsers();
   if((users||[]).find(x=>x.username===u)){
@@ -1760,7 +1866,7 @@ function renderDashboard(){
       const present = s.attendance.filter(x=>x.status==='present').length;
       const absent = s.attendance.filter(x=>x.status==='absent').length;
       return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
-        <div><div style="font-size:13px;font-weight:500">${sub.name} — ${cls.name}</div><div style="font-size:11px;color:var(--text3)">By ${s.teacherName}</div></div>
+        <div><div style="font-size:13px;font-weight:500">${sub.name} â€” ${cls.name}</div><div style="font-size:11px;color:var(--text3)">By ${s.teacherName}</div></div>
         <div style="display:flex;gap:8px"><span class="badge badge-present">${present} P</span><span class="badge badge-absent">${absent} A</span></div>
       </div>`;
     }).join('');
@@ -1776,7 +1882,7 @@ function renderDashboard(){
     } else {
       document.getElementById('dash-recent').innerHTML = allAbsent.slice(0,6).map(a=>`
         <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
-          <div><div style="font-size:13px;font-weight:500">${a.name}</div><div style="font-size:11px;color:var(--text3)">${a.subject} · ${a.date}</div></div>
+          <div><div style="font-size:13px;font-weight:500">${a.name}</div><div style="font-size:11px;color:var(--text3)">${a.subject} Â· ${a.date}</div></div>
           <span class="badge badge-${a.status}">${a.status}</span>
         </div>`).join('');
     }
@@ -1805,6 +1911,10 @@ function loadAttClasses(){
   sel.innerHTML = classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
 }
 
+function sortStudentsByName(students){
+  return [...(students||[])].sort((a,b)=>String(a.name||'').localeCompare(String(b.name||''), undefined, {sensitivity:'base'}));
+}
+
 function startAttendance(){
   const subjectId = document.getElementById('att-subject').value;
   const classId   = document.getElementById('att-class').value;
@@ -1817,36 +1927,38 @@ function startAttendance(){
   const sub = subjects.find(s=>String(s.id)===String(subjectId));
   const cls = classes.find(c=>String(c.id)===String(classId));
   const classStudents = students.filter(s=>String(s.class_id||s.classId)===String(classId));
+  const sortedStudents = sortStudentsByName(classStudents);
 
-  if(classStudents.length===0){ alert('No students in this class.'); return; }
+  if(sortedStudents.length===0){ alert('No students in this class.'); return; }
 
   currentAttendance = {};
-  classStudents.forEach(s=>{ currentAttendance[s.id]='present'; });
+  sortedStudents.forEach(s=>{ currentAttendance[String(s.id)]='present'; });
 
   document.getElementById('att-step1').classList.add('hidden');
   document.getElementById('att-step2').classList.remove('hidden');
   document.getElementById('att-banner').innerHTML = `
-    <div class="info"><strong>${sub.name}</strong> · ${cls.name} · ${date}</div>
+    <div class="info"><strong>${sub.name}</strong> Â· ${cls.name} Â· ${date}</div>
     <div class="info">Teacher: <strong>${currentUser.name}</strong></div>
   `;
 
-  renderRoll(classStudents);
+  renderRoll(sortedStudents);
 }
 
 function renderRoll(students){
   if(!students){
-    const classId = parseInt(document.getElementById('att-class').value);
-    students = (store.get('students')||[]).filter(s=>s.classId===classId);
+    const classId = document.getElementById('att-class').value;
+    students = (_cache.students||[]).filter(s=>String(s.class_id||s.classId)===String(classId));
   }
+  students = sortStudentsByName(students);
   const roll = document.getElementById('student-roll');
   roll.innerHTML = students.map(s=>{
-    const st = currentAttendance[s.id]||'present';
+    const st = currentAttendance[String(s.id)]||'present';
     return `<div class="student-card ${st}" id="sc-${s.id}">
       <div><div class="stu-name">${s.name}</div><div class="stu-id">${s.sid}</div></div>
       <div class="status-btns">
-        <button class="status-btn ${st==='present'?'p':''}" onclick="setStatus(${s.id},'present','${s.name}')" title="Present">P</button>
-        <button class="status-btn ${st==='absent'?'a':''}" onclick="setStatus(${s.id},'absent','${s.name}')" title="Absent">A</button>
-        <button class="status-btn ${st==='late'?'l':''}" onclick="setStatus(${s.id},'late','${s.name}')" title="Late">L</button>
+        <button class="status-btn ${st==='present'?'p':''}" onclick='setStatus(${jsArg(s.id)}, "present")' title="Present">P</button>
+        <button class="status-btn ${st==='absent'?'a':''}" onclick='setStatus(${jsArg(s.id)}, "absent")' title="Absent">A</button>
+        <button class="status-btn ${st==='late'?'l':''}" onclick='setStatus(${jsArg(s.id)}, "late")' title="Late">L</button>
       </div>
     </div>`;
   }).join('');
@@ -1863,8 +1975,8 @@ function setStatus(studentId, status, name){
     if(b.title==='Absent'&&status==='absent') b.classList.add('a');
     if(b.title==='Late'&&status==='late') b.classList.add('l');
   });
-  const classId = parseInt(document.getElementById('att-class').value);
-  const students = (store.get('students')||[]).filter(s=>s.classId===classId);
+  const classId = document.getElementById('att-class').value;
+  const students = (_cache.students||[]).filter(s=>String(s.class_id||s.classId)===String(classId));
   updateAttSummary(students.length);
 }
 
@@ -1882,8 +1994,8 @@ function updateAttSummary(total){
 
 function markAllPresent(){
   const classId = document.getElementById('att-class').value;
-  const students = (_cache.students||[]).filter(s=>String(s.class_id||s.classId)===String(classId));
-  students.forEach(s=>{ currentAttendance[s.id]='present'; });
+  const students = sortStudentsByName((_cache.students||[]).filter(s=>String(s.class_id||s.classId)===String(classId)));
+  students.forEach(s=>{ currentAttendance[String(s.id)]='present'; });
   renderRoll(students);
 }
 
@@ -1899,7 +2011,7 @@ async function submitAttendance(){
   });
 
   const saveBtn = document.querySelector('#att-step2 .btn-success');
-  if(saveBtn){ saveBtn.disabled=true; saveBtn.textContent='Saving…'; }
+  if(saveBtn){ saveBtn.disabled=true; saveBtn.textContent='Savingâ€¦'; }
 
   const session = {subjectId, classId, date, teacherId:currentUser.id, teacherName:currentUser.name};
   const {data, error} = await DB.createSession(session, attendance);
@@ -1961,14 +2073,14 @@ function renderRecords(filtered){
     return `<div class="card" style="margin-bottom:12px">
       <div class="card-header">
         <div>
-          <div style="font-size:15px;font-weight:600">${sub.name} — ${cls.name}</div>
-          <div style="font-size:12px;color:var(--text3)">Date: ${s.date} · Teacher: ${s.teacherName}</div>
+          <div style="font-size:15px;font-weight:600">${sub.name} â€” ${cls.name}</div>
+          <div style="font-size:12px;color:var(--text3)">Date: ${s.date} Â· Teacher: ${s.teacherName}</div>
         </div>
         <div style="display:flex;gap:8px;align-items:center">
           <span class="badge badge-present">${present} P</span>
           <span class="badge badge-absent">${absent} A</span>
           <span class="badge badge-late">${late} L</span>
-          ${isAdmin?`<button class="btn btn-sm btn-danger" onclick="deleteSession(${s.id})">Delete</button>`:''}
+          ${isAdmin?`<button class="btn btn-sm btn-danger" onclick='deleteSession(${jsArg(s.id)})'>Delete</button>`:''}
         </div>
       </div>
       <div class="card-body">
@@ -2008,7 +2120,7 @@ function deleteSession(id){
   showConfirm('Delete this session record? This cannot be undone.', async ()=>{
     const {error} = await DB.deleteSession(id);
     if(error){ showToast('Delete failed.','error'); return; }
-    _cache.sessions = _cache.sessions.filter(s=>s.id!==id);
+    _cache.sessions = _cache.sessions.filter(s=>String(s.id)!==String(id));
     renderRecords();
     renderDashboard();
     showToast('Session deleted.','info');
@@ -2021,9 +2133,9 @@ function deleteSession(id){
 function exportPDF(){
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const sessions = store.get('sessions')||[];
-  const classes = store.get('classes')||[];
-  const subjects = store.get('subjects')||[];
+  const sessions = _cache.sessions||[];
+  const classes = _cache.classes||[];
+  const subjects = _cache.subjects||[];
 
   const from = document.getElementById('filter-from').value;
   const to = document.getElementById('filter-to').value;
@@ -2032,8 +2144,8 @@ function exportPDF(){
   let filteredSessions = [...sessions];
   if(from) filteredSessions = filteredSessions.filter(s=>s.date>=from);
   if(to) filteredSessions = filteredSessions.filter(s=>s.date<=to);
-  if(classId) filteredSessions = filteredSessions.filter(s=>s.classId===parseInt(classId));
-  if(subjectId) filteredSessions = filteredSessions.filter(s=>s.subjectId===parseInt(subjectId));
+  if(classId) filteredSessions = filteredSessions.filter(s=>String(s.class_id||s.classId)===String(classId));
+  if(subjectId) filteredSessions = filteredSessions.filter(s=>String(s.subject_id||s.subjectId)===String(subjectId));
 
   // Header
   doc.setFillColor(45,106,240);
@@ -2046,11 +2158,11 @@ function exportPDF(){
   doc.setTextColor(255,255,255);
   doc.setFontSize(16);
   doc.setFont('helvetica','bold');
-  doc.text('RUPP — Absence Report',14,14);
+  doc.text('RUPP â€” Absence Report',14,14);
   doc.setFontSize(9);
   doc.setFont('helvetica','normal');
   doc.text('Royal University of Phnom Penh',14,20);
-  doc.text(`Generated: ${new Date().toLocaleDateString()} · By: ${currentUser.name}`,14,27);
+  doc.text(`Generated: ${new Date().toLocaleDateString()} Â· By: ${currentUser.name}`,14,27);
 
   let y = 42;
   doc.setTextColor(0,0,0);
@@ -2077,7 +2189,7 @@ function exportPDF(){
     doc.setFontSize(11);
     doc.setFont('helvetica','bold');
     doc.setTextColor(30,30,30);
-    doc.text(`${sub.name} — ${cls.name} | Date: ${s.date}`,14,y+2);
+    doc.text(`${sub.name} â€” ${cls.name} | Date: ${s.date}`,14,y+2);
     doc.setFont('helvetica','normal');
     doc.setFontSize(9);
     doc.setTextColor(100,100,100);
@@ -2119,7 +2231,7 @@ function exportPDF(){
   // Footer
   doc.setTextColor(150,150,150);
   doc.setFontSize(8);
-  doc.text(`RUPP Absence Management System — Page ${doc.internal.getNumberOfPages()}`,14,290);
+  doc.text(`RUPP Absence Management System â€” Page ${doc.internal.getNumberOfPages()}`,14,290);
 
   doc.save('absence_report.pdf');
 }
@@ -2154,8 +2266,8 @@ function renderStudents(){
       <td><code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:11px">${s.sid}</code></td>
       <td>${cls.name}</td>
       <td><div style="display:flex;gap:6px">
-        <button class="btn btn-sm btn-outline" onclick="openStudentModal(${s.id})">Edit</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteStudent(${s.id})">Delete</button>
+        <button class="btn btn-sm btn-outline" onclick='openStudentModal(${jsArg(s.id)})'>Edit</button>
+        <button class="btn btn-sm btn-danger" onclick='deleteStudent(${jsArg(s.id)})'>Delete</button>
       </div></td>
     </tr>`;
   }).join('');
@@ -2230,8 +2342,8 @@ function renderSubjects(){
       <td><code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:11px">${s.code}</code></td>
       <td>${teacher?teacher.name:'<span style="color:var(--text3)">Unassigned</span>'}</td>
       <td><div style="display:flex;gap:6px">
-        <button class="btn btn-sm btn-outline" onclick="openSubjectModal(${s.id})">Edit</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteSubject(${s.id})">Delete</button>
+        <button class="btn btn-sm btn-outline" onclick='openSubjectModal(${jsArg(s.id)})'>Edit</button>
+        <button class="btn btn-sm btn-danger" onclick='deleteSubject(${jsArg(s.id)})'>Delete</button>
       </div></td>
     </tr>`;
   }).join('');
@@ -2305,8 +2417,8 @@ function renderClasses(){
       <td>${c.grade}</td>
       <td><span class="badge badge-present">${count} students</span></td>
       <td><div style="display:flex;gap:6px">
-        <button class="btn btn-sm btn-outline" onclick="openClassModal(${c.id})">Edit</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteClass(${c.id})">Delete</button>
+        <button class="btn btn-sm btn-outline" onclick='openClassModal(${jsArg(c.id)})'>Edit</button>
+        <button class="btn btn-sm btn-danger" onclick='deleteClass(${jsArg(c.id)})'>Delete</button>
       </div></td>
     </tr>`;
   }).join('');
@@ -2396,10 +2508,10 @@ function renderUsers(){
       <td>${u.name}</td>
       <td>${u.username}</td>
       <td><span class="badge badge-teacher">${u.role}</span></td>
-      <td>${u.created}</td>
+      <td>${u.created_at||u.created||'-'}</td>
       <td><div style="display:flex;gap:6px">
-        <button class="btn btn-sm btn-success" onclick="approveUser(${u.id})">Approve</button>
-        <button class="btn btn-sm btn-danger" onclick="rejectUser(${u.id})">Reject</button>
+        <button class="btn btn-sm btn-success" onclick='approveUser(${jsArg(u.id)})'>Approve</button>
+        <button class="btn btn-sm btn-danger" onclick='rejectUser(${jsArg(u.id)})'>Reject</button>
       </div></td>
     </tr>`).join('');
   }
@@ -2408,9 +2520,9 @@ function renderUsers(){
   const active = users.filter(u=>u.status==='approved');
   const atbody = document.getElementById('active-tbody');
   atbody.innerHTML = active.map(u=>{
-    const isSelf = u.id===currentUser.id;
+    const isSelf = String(u.id)===String(currentUser.id);
     const roleSelect = !isSelf
-      ? `<select class="form-control" style="min-height:32px;font-size:12px;padding:4px 28px 4px 8px;width:auto;display:inline-block;" onchange="changeUserRole(${u.id},this.value)">
+      ? `<select class="form-control" style="min-height:32px;font-size:12px;padding:4px 28px 4px 8px;width:auto;display:inline-block;" onchange='changeUserRole(${jsArg(u.id)},this.value)'>
           <option value="teacher" ${u.role==='teacher'?'selected':''}>Teacher</option>
           <option value="admin" ${u.role==='admin'?'selected':''}>Admin</option>
         </select>`
@@ -2422,7 +2534,7 @@ function renderUsers(){
       <td><span class="badge badge-approved">Active</span></td>
       <td>${isSelf
         ? '<span style="color:var(--text3);font-size:12px">You</span>'
-        : `<button class="btn btn-sm btn-danger" onclick="removeUser(${u.id})">Remove</button>`
+        : `<button class="btn btn-sm btn-danger" onclick='removeUser(${jsArg(u.id)})'>Remove</button>`
       }</td>
     </tr>`;
   }).join('');
@@ -2538,7 +2650,7 @@ document.getElementById('app').style.display='none';
   if(!USE_SUPABASE){
     banner.style.display='block';
     banner.style.background='#fef3c7'; banner.style.color='#92400e'; banner.style.border='1px solid #fde68a';
-    banner.innerHTML='<strong>Offline mode</strong> — using local storage (no Supabase key set)';
+    banner.innerHTML='<strong>Offline mode</strong> â€” using local storage (no Supabase key set)';
     return;
   }
   try {
@@ -2569,3 +2681,7 @@ document.getElementById('app').style.display='none';
 </script>
 </body>
 </html>
+
+
+
+
