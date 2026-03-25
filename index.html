@@ -298,9 +298,10 @@
     background: rgba(0,0,0,.55);
     z-index: 199;
     opacity: 0;
+    pointer-events: none;
     transition: opacity .28s;
   }
-  .sidebar-overlay.visible { opacity: 1; }
+  .sidebar-overlay.visible { opacity: 1; pointer-events: auto; }
 
   /* ---- BOTTOM NAV (mobile) ---- */
   .bottom-nav {
@@ -2681,6 +2682,7 @@ document.getElementById('app').style.display='none';
 </script>
 </body>
 </html>
+
 
 
 
